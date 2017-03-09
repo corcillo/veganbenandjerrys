@@ -5,11 +5,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var routes = require('./routes');
 var index = require('./routes/index');
 var users = require('./routes/users');
-
 var app = express();
+// app.listen(3000, function() {
+//   console.log("Listening on 3000");
+// });
 
+app.get('/', (req, res) => {
+  res.sendFile('public/index.html', { root: __dirname });
+});
+app.post('/', (req, res) => {
+  console.log("IT ME");
+  // var table = $("#gridTable");
+  // table.append("hello"); 
+});
 app.use(express.static('public'));
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

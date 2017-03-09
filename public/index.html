@@ -4,7 +4,28 @@
   <title>Vegan Ben&Jerry's Locator</title>
 </head>
 <body>  
+  <script src="./jquery-1.11.3.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
   <link rel="stylesheet" href="stylesheets/style.css">
-  <h1>Vegan Ben&Jerry's Locator</h1>
+  <h1 id="title">Vegan Ben&Jerry's Locator</h1>
+  <div ng-app="" ng-init="myCol='lightblue'">
+  <input style="background-color:{{myCol}}" ng-model="myCol" value="{{myCol}}">
+  </div>
+  <h2>/n/n/n/n/n/n/nAdd Location</h2>
+  <form action="/" method="POST">
+    <input type="text" placeholder="store name" name="store name">
+    <input type="text" placeholder="location" name="location">
+    <input type="number" placeholder="number of flavors" name="number of flavors">
+    <button type="submit" id="addLocation">Add Location</button>
+  </form>
+  <h2>Find Locations Near You</h2>
+  <form id="findLocationsForm" action="/" method="POST">
+    <input id="zipcode" type="text" placeholder="your zip code" name="zipcode">
+    <input type="number" placeholder="mile radius" name="max distance">
+    <button type="submit" id="findLocations">Find Locations</button>
+  </form>
+  <h2>All Locations</h2>
+  <table id="locations"></table>
+  <script src="./javascripts/main.js"></script>
 </body>
 </html>
